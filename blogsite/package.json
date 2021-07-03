@@ -1,0 +1,15 @@
+{
+  "name": "blogsite",
+  "version": "1.0.0",
+  "description": "Blog for 100 days of Node",
+  "main": "index.js",
+  "scripts": {
+    "build-css": "tailwindcss build -i src/styles.css -o public/styles.css"
+  },
+  "author": "Rick Love",
+  "license": "ISC",
+  "dependencies": {
+    "aos": "^2.3.4",
+    "tailwindcss": "^2.2.4"
+  }
+}

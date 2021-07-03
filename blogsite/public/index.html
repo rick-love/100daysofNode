@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+        integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- FONTAWESOME -->
+    <script src="https://kit.fontawesome.com/9791e2d21b.js" crossorigin="anonymous"></script>
+
+    <title>100 Days of Node</title>
+</head>
+
+<body class="">
+    <!-- Define the symbols, these are invisible on the page -->
+    <i data-fa-symbol="node" class="fab fa-node"></i>
+
+    <!-- HEADER -->
+    <header class="bg-gray-700">
+        <div class="pt-2 grid place-items-center">
+            <p class="text-2xl text-gray-200 text-red-400 sm:text-4xl md:text-6xl">
+                100 Days of...
+            </p>
+            <svg class="text-green-600 md:w-1/3">
+                <use xlink:href="#node"></use>
+            </svg>
+        </div>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <div class="container grid place-items-center">
+
+        <!-- DAY  1 CARD -->
+        <div class="
+          day-card
+          shadow-xl
+          bg-gray-700
+          rounded-lg
+          m-4
+          p-1
+          w-4/5
+        " data-aos="fade-right">
+            <!-- CARD HEADER -->
+            <div class="
+            day-header
+            border-b-2 border-red-400
+            grid grid-cols-1
+            md:grid-cols-2
+            p-4
+          ">
+                <div class="title m-auto sm:mb-4">
+                    <p class="text-4xl mb-4 sm:text-5xl text-red-400">Day 1</p>
+                </div>
+                <div class="m-auto sm:mb-4">
+                    <p class="text-4xl mb-2 sm:text-5xl text-red-400">express</p>
+                </div>
+            </div>
+
+            <div class="card-text p-8">
+                <!-- CARD SUMMARY -->
+                <div class="summary mb-3 text-white">
+                    <div class="p-4 ">
+                        <p class="text-2xl text-center p-4">Setup & Configuration</p>
+                        <ul class='m-1 pl-4 grid gap-1 inline-block'>
+                            <li class='setup-li'>Initialize Node -> npm init</li>
+                            <p class="text-white p-2 text-1xl mb-1 m-auto sm:mb-4"><span>This gives is our package.json
+                                    file and the node_modules folder</span></p>
+                            <li class='setup-li'>Install Express -> npm -i express</li>
+                            <p class="text-white p-8 text-2xl m-auto sm:mb-4">
+                                <span class="text-4xl text-red-400">express</span> is a node.js
+                                framework used for complex routing, easier handling of requests
+                                and responses, middleware and server-side rendering.
+                            </p>
+                            <li class='setup-li'>Install nodemon -> npm -g nodemon</li>
+                            <li class='setup-li'>Install & Configure Postman</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- CARD LESSONS LEARNED -->
+                <div class="lesson-learned">
+                    <p>Tailwind has changed my design process to build for mobile first, then desktop.</p>
+                    <p class="text-white">
+                        First let's install and setup Postman to make the API development
+                        easier. Now Install Express and create our Web Server npm install
+                        express --save- create app.js in our route folder Let's also in
+                        stall nodemon which will watch all the files in the directory that
+                        nodemon was started, and if they change, it will automatically
+                        restart your node application. npm install nodemon
+                    </p>
+                    <span>REST Architecture</span>
+                    <p>
+                        It is important for us to follow this architecture when designing
+                        and deploying our API.
+                    </p>
+                    <ul>
+                        <li>Separate API into logical resources</li>
+                        <span>Any information we want to share is a resource</span>
+                        <li>Expose Structured URLs</li>
+                        <span>localhost/tours/ID</span>
+                        <li>Use HTTP methods</li>
+                        <span>CRUD and their Verbs</span>
+                        <ul>
+                            <li>Create -> POST</li>
+                            <li>Read -> GET</li>
+                            <li>Update -> PUT / PATCH</li>
+                            <li>Delete -> DELETE</li>
+                        </ul>
+                        <li>Send Data as JSON</li>
+                        <span>JSON WEB SITE</span>
+                        <li>Be stateless</li>
+                        <span>Each request must contain all information needed to process the
+                            request. The Server shouldn't have to remember previous
+                            requests.</span>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- END OF CARD -->
+
+        <!-- DAY 2 CARD -->
+        <div class="
+          day-card
+          shadow-xl
+          bg-gray-700
+          rounded-lg
+          m-4
+          p-1
+          w-4/5
+        " data-aos="fade-left">
+            <!-- CARD HEADER -->
+            <div class="
+            day-header
+            border-b-2 border-red-400
+            grid grid-cols-1
+            md:grid-cols-2
+            p-4
+          ">
+                <div class="title m-auto sm:mb-4">
+                    <p class="text-4xl mb-4 sm:text-5xl text-red-400">Day 2</p>
+                </div>
+                <div class="m-auto sm:mb-4">
+                    <p class="text-4xl mb-2 sm:text-5xl text-red-400">Routes</p>
+                </div>
+            </div>
+
+            <div class="card-text p-8">
+                <!-- CARD SUMMARY -->
+                <div class="summary mb-3 text-white">
+                    <div class="p-4 ">
+                        <p class="p-4">Todays main focus is on setting up our API Routes. We are
+                            going to use the popular url pattern of 'api/v1/tours' to build our routes base. Using 'v1'
+                            will enable us in the future to make changes and push out 'v2' without disrupting users, 'in
+                            theory'.</p>
+                            <p class="p-4">Now let's set up and test in Postman our basic routes. Then we will read and add data to our sample JSON file using the File System module.</p>
+                            <ul class='m-1 pl-4 grid gap-1 inline-block'>
+                            <li class='setup-li'>Setting up for the basic routes</li>
+                            <p class="text-white p-2 text-1xl mb-1 sm:mb-4">
+                                <span>GET</span>
+                            </p>
+                            <li class='setup-li'>app.get('/', (req, res) => {
+                                res.send('Hello World!')
+                                })</li>
+                            <p class="text-white p-2 text-1xl mb-1 sm:mb-4">
+                                <span>Get Tour by ID</span>
+                            </p>
+
+                            <li class='setup-li'>GET Tour by ID</li>
+                            <li class='setup-li'>Install & Configure Postman</li>
+
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- CARD LESSONS LEARNED -->
+                <div class="lesson-learned">
+                    <p class='text-white'>Quokka and Nodemon issue due to Quokka keep ports open to process data and
+                        nodemon refreshing the server.</p>
+                    <p class="text-white">
+                        killall -9 node
+
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        <!-- END OF CARD -->
+
+        <!-- TEMPLATE -->
+        <!-- DAY !!! CARD -->
+        <div class="
+          day-card
+          shadow-xl
+          bg-gray-700
+          rounded-lg
+          m-4
+          p-1
+          w-4/5
+        " data-aos="fade-left">
+            <!-- CARD HEADER -->
+            <div class="
+            day-header
+            border-b-2 border-red-400
+            grid grid-cols-1
+            md:grid-cols-2
+            p-4
+          ">
+                <div class="title m-auto sm:mb-4">
+                    <p class="text-4xl mb-4 sm:text-5xl text-red-400">Day !!!</p>
+                </div>
+                <div class="m-auto sm:mb-4">
+                    <p class="text-4xl mb-2 sm:text-5xl text-red-400">TOPIC</p>
+                </div>
+            </div>
+
+            <div class="card-text p-8">
+                <!-- CARD SUMMARY -->
+                <div class="summary mb-3 text-white">
+                    <div class="p-4 ">
+                        <p class="text-2xl text-center p-4">PARAGRAPP</p>
+                        <ul class='m-1 pl-4 grid gap-1 inline-block'>
+                            <li class='setup-li'>Setting up our routes</li>
+                            <p class="text-white p-2 text-1xl mb-1 m-auto sm:mb-4">
+                                <span>NOTES on Routes</span>
+                            </p>
+                            <li class='setup-li'>GET Route</li>
+                            <p class="text-white p-2 text-1xl mb-1 m-auto sm:mb-4">
+                                <span>GET Routes</span>
+                            </p>
+                            <li class='setup-li'>POST Route</li>
+                            <p class="text-white p-2 text-1xl mb-1 m-auto sm:mb-4">
+                                <span>POST Routes</span>
+                            </p>
+
+                            <li class='setup-li'>Install nodemon -> npm -g nodemon</li>
+                            <li class='setup-li'>Install & Configure Postman</li>
+
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- CARD LESSONS LEARNED -->
+                <div class="lesson-learned">
+                    <p class='text-white'>Quokka and Nodemon issue due to Quokka keep ports open to process data and
+                        nodemon refreshing the server.</p>
+                    <p class="text-white">
+
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        <!-- END OF CARD -->
+
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+        integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        AOS.init({
+            delay: 200,
+            duration: 1200,
+            once: false,
+        });
+    </script>
+</body>
+
+</html>
