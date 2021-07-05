@@ -16,56 +16,37 @@
     <title>100 Days of Node</title>
 </head>
 
-<body class="">
+<body class="bg-gray-100">
     <!-- Define the symbols, these are invisible on the page -->
     <i data-fa-symbol="node" class="fab fa-node"></i>
 
     <!-- HEADER -->
-    <header class="bg-gray-700">
-        <div class="pt-2 grid place-items-center">
-            <p class="text-2xl text-gray-200 text-red-400 sm:text-4xl md:text-6xl">
-                100 Days of...
-            </p>
-            <svg class="text-green-600 md:w-1/3">
+    <header class="shadow-md">
+        <div class="p-8 text-gray-600 text-4xl flex flex-col place-content-center place-items-center">
+            <span>100days of...</span>
+            <svg class="w-1/3">
                 <use xlink:href="#node"></use>
             </svg>
         </div>
     </header>
 
     <!-- MAIN CONTAINER -->
-    <div class="container grid place-items-center">
+    <div class="grid place-items-center">
 
         <!-- DAY  1 CARD -->
-        <div class="
-          day-card
-          shadow-xl
-          bg-gray-700
-          rounded-lg
-          m-4
-          p-1
-          w-4/5
-        " data-aos="fade-right">
+        <div class="day-card border-2 border-red-200" data-aos="fade-right">
             <!-- CARD HEADER -->
-            <div class="
-            day-header
-            border-b-2 border-red-400
-            grid grid-cols-1
-            md:grid-cols-2
-            p-4
-          ">
-                <div class="title m-auto sm:mb-4">
-                    <p class="text-4xl mb-4 sm:text-5xl text-red-400">Day 1</p>
-                </div>
-                <div class="m-auto sm:mb-4">
-                    <p class="text-4xl mb-2 sm:text-5xl text-red-400">express</p>
+            <div class="day-header p-4 text-center">
+                <div class="title">
+                    <p class="text-4xl md:text-5xl text-red-400">Day 1 -> Express</p>
                 </div>
             </div>
 
-            <div class="card-text p-8">
+            <div class="card-text">
                 <!-- CARD SUMMARY -->
-                <div class="summary mb-3 text-white">
+                <div class="summary mb-3">
                     <div class="p-4 ">
-                        <p class="text-2xl text-center p-4">Setup & Configuration</p>
+                        <p class="text-2xl text-center md:text-left p-4">Setup & Configuration</p>
                         <ul class='m-1 pl-4 grid gap-1 inline-block'>
                             <li class='setup-li'>Initialize Node -> npm init</li>
                             <p class="text-white p-2 text-1xl mb-1 m-auto sm:mb-4"><span>This gives is our package.json
@@ -157,8 +138,9 @@
                             going to use the popular url pattern of 'api/v1/tours' to build our routes base. Using 'v1'
                             will enable us in the future to make changes and push out 'v2' without disrupting users, 'in
                             theory'.</p>
-                            <p class="p-4">Now let's set up and test in Postman our basic routes. Then we will read and add data to our sample JSON file using the File System module.</p>
-                            <ul class='m-1 pl-4 grid gap-1 inline-block'>
+                        <p class="p-4">Now let's set up and test in Postman our basic routes. Then we will read and add
+                            data to our sample JSON file using the File System module.</p>
+                        <ul class='m-1 pl-4 grid gap-1 inline-block'>
                             <li class='setup-li'>Setting up for the basic routes</li>
                             <p class="text-white p-2 text-1xl mb-1 sm:mb-4">
                                 <span>GET</span>
@@ -257,6 +239,69 @@
         </div>
         <!-- END OF CARD -->
 
+
+        <div id="day4">
+            UPdating and Refactoring Routes
+
+
+            Let's start with the Delete Tours route:
+            app.delete('/api/v1/tours/:id', (req, res) => {
+                if (req.params.id * 1 > tours.length) {
+                  return res.status(404).json({ status: 'fail', message: 'Invalid Id' });
+                }
+              
+                res.status(204).json({
+                  status: 'success',
+                  data: null,
+                });
+              });
+
+              We refactor by creating a function and calling the function in the route:
+              ////////////////
+            // DELETE Tour
+            const deleteTour = (req, res) => {
+            if (req.params.id * 1 > tours.length) {
+                return res.status(404).json({ status: 'fail', message: 'Invalid Id' });
+            }
+
+            res.status(204).json({
+                status: 'success',
+                data: null,
+            });
+            }
+
+            app.delete('/api/v1/tours/:id', deleteTour);
+
+            Next we clean up the Route again by using app.route:
+            app.route('/api/v1/tours').get(getAllTours).post(createTour);
+            app
+            .route('/api/v1/tours/:id')
+            .get(getTour)
+            .patch(updateTour)
+            .delete(deleteTour);
+
+            Now let's create our own middleware to handle our routes. 
+            We start with a simple example and add this to our app.js and trigger a API request call from postman. We should then see a new message in the console.
+
+            app.use((req, res, next) => {
+                console.log('Hi from middleware');
+                next();
+              });
+
+              Let's add Morgan to make our lives easier.
+              npm i morgan
+              and of course require at the top of app.js
+              const morgan = require('morgan');
+
+              And in the Middleware we call it:
+              app.use(morgan('dev'));
+
+              Morgan will add extended comments to our console logs.
+
+        Now let's create some User Routes.
+        
+
+        </div>
 
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"

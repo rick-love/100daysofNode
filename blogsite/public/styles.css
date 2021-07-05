@@ -32231,6 +32231,17 @@ video {
   line-height: 1.75rem;
 }
 
+.day-card{
+  margin: 1rem;
+  width: 80%;
+  border-radius: 0.5rem;
+  --tw-bg-opacity: 1;
+  background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
+  padding: 0.25rem;
+  --tw-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;

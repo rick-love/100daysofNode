@@ -5,3 +5,7 @@
 .setup-li {
   @apply p-2 pl-4 pr-4 text-lg bg-gray-500 rounded-md;
 }
+
+.day-card{
+  @apply shadow-xl bg-gray-200 rounded-lg m-4 p-1 w-4/5
+}
